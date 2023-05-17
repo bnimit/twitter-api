@@ -50,7 +50,7 @@ func (in RegisterInput) Validate() error {
 		return fmt.Errorf("%w: password not long enough. (%d) characters at least", ErrValidation, PasswordMinLength)
 	}
 
-	if in.Password == in.ConfirmPassword {
+	if in.Password != in.ConfirmPassword {
 		return fmt.Errorf("%w: confirm password must match with password", ErrValidation)
 	}
 
